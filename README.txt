@@ -11,14 +11,15 @@ it is derived from:
     by Daily Web Coding
 
 
+deployed:
+    https://images-next14-supabase.vercel.app/
+
+
 once deployed need to change homepage url from localhost  to deployed url
 at github for OAuth purposes - personal settings - developer settings - OAuth Apps - 
-Might need to change url at app/auth-server/actions/index.ts line 33 as well.
+
 
 
 to do:
-- deploy 
-- change 'photo' and 'todo' terminology to 'image' 
-- add homepage logo e.g. 'wikipedia images' 
 - make images open in new page with more info
 - favicon
