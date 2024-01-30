@@ -15,8 +15,10 @@ deployed:
     https://images-next14-supabase.vercel.app/
 
 
-once deployed need to change homepage url from localhost  to deployed url
-at github for OAuth purposes - personal settings - developer settings - OAuth Apps - 
+Once deployed need to change homepage url from localhost  to deployed url
+at github for OAuth purposes - personal settings - developer settings - OAuth Apps.
+Also at Supabase, under Authentication - URL Configuration, add deployed URL to 
+Redirect URLs.
 
 
 
