@@ -21,5 +21,6 @@ at github for OAuth purposes - personal settings - developer settings - OAuth Ap
 
 
 to do:
+- test github auth on another laptop
 - make images open in new page with more info
 - favicon

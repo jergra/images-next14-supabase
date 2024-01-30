@@ -18,9 +18,9 @@ export default async function page() {
 			<div className='w-full flex justify-between h-16 items-center py-2 px-10 bg-gray-100'>
 				<div className='text-5xl text-teal-400'>IMAGES</div>
 				<div className='flex justify-between w-2/5'>
-					<Link href="/auth-server"><Button className='bg-white text-gray-800 shadow hover:bg-primary/10'>Auth Server</Button></Link>
-					<Link href="/auth-client"><Button className='bg-primary/10 text-gray-800 shadow hover:bg-primary/10'>Auth Client</Button></Link>
-					<Link href="/oauth"><Button className='bg-white text-gray-800 shadow hover:bg-primary/10'>Signin with Github</Button></Link>
+					<Link href="/auth-server"><Button className='bg-gray-200 text-gray-800 shadow hover:bg-gray-300'>Auth Server</Button></Link>
+					<Link href="/auth-client"><Button className='bg-white text-gray-800 shadow hover:bg-white'>Auth Client</Button></Link>
+					<Link href="/oauth"><Button className='bg-gray-200 text-gray-800 shadow hover:bg-gray-300'>Signin with Github</Button></Link>
 				</div>
 			</div>
 			<div className="w-96 m-auto">
