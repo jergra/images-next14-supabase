@@ -16,10 +16,10 @@ export default async function page() {
 	return (
 		<div className="flex flex-col items-center h-screen">
 			<div className='w-full flex justify-between h-16 items-center py-2 px-10 bg-gray-100'>
-				<div className='text-5xl text-teal-400'>IMAGES</div>
+				<div className='text-4xl md:text-5xl text-teal-400'>IMAGES</div>
 				<div className='flex justify-between w-2/5'>
-					<Link href="/auth-server"><Button className='bg-white text-gray-800 shadow hover:bg-white'>Auth Server</Button></Link>
-					<Link href="/auth-client"><Button className='bg-gray-200 text-gray-800 shadow hover:bg-gray-300'>Auth Client</Button></Link>
+					<Link href="/auth-server"><Button className='bg-white text-gray-800 shadow hover:bg-white mr-2'>Auth Server</Button></Link>
+					<Link href="/auth-client"><Button className='bg-gray-200 text-gray-800 shadow hover:bg-gray-300 mr-2'>Auth Client</Button></Link>
 					<Link href='/oauth'><Button className='bg-gray-200 text-gray-800 shadow hover:bg-gray-300'>Signin with Github</Button></Link>
 				</div>
 				</div>

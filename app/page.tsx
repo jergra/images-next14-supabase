@@ -25,10 +25,9 @@ export default async function page() {
 	return (
 		<div className="flex flex-col items-center h-full">
 			<div className='flex justify-between w-full bg-gray-100 h-16 py-2 px-10 mb-10 items-center'>
-				<div className='text-5xl text-teal-400'>IMAGES</div>
-				<div className='flex w-1/3 justify-between'>
-					<Link href="/"><Button className='bg-gray-900 text-primary-foreground shadow hover:bg-primary/90'>Home</Button></Link>
-					<Link href="/images"><Button className='bg-gray-500 text-primary-foreground shadow hover:bg-primary/90'>Profile</Button></Link>
+				<div className='text-4xl md:text-5xl text-teal-400'>IMAGES</div>
+				<div className='flex w-1/6 justify-between'>
+					<Link href="/images"><Button className='bg-gray-900 text-primary-foreground shadow hover:bg-primary/90 mr-3'>Profile</Button></Link>
 					<form action={logout}>
 						<Button>SignOut</Button>
 					</form>
