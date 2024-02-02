@@ -1,6 +1,6 @@
+import { AuthForm } from "../auth-server-form/components/AuthForm";
 import { redirect } from "next/navigation";
 import { readUserSession } from "@/lib/actions";
-import Images from "@/components/Images";
 import NavAuth from "@/components/NavAuth";
 
 export default async function page() {
@@ -12,9 +12,11 @@ export default async function page() {
 	}
 
 	return (
-		<div className="flex flex-col items-center h-full">
+		<div className="flex flex-col justify-center items-center h-screen">
 			<NavAuth />
-			<Images />
+			<div className="w-96 m-auto">
+				<AuthForm />
+			</div>
 		</div>
 	);
 }

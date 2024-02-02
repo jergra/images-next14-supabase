@@ -7,22 +7,20 @@ export default async function Images() {
 
 	return (
 		<div className="flex flex-wrap h-full m-10 gap-10">
-				
 			{data?.reverse().map((image, index) => {
 				return (
 					<div key={index}>
 						<div>
 							<Image
 								src={image.url}
-								width={580}
-								height={580}
+								width={398}
+								height={398}
 								alt=""
 							/>
 						</div>
 					</div>
 				);
 			})}
-			
 		</div>
 	);
 }
