@@ -4,7 +4,7 @@ import { deleteImageById, readImages, readImagesByUserId } from "./actions";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import Nav from "@/components/Nav";
+import NavAuthorized from "@/components/NavAuthorized";
   
 
 export default async function page() {
@@ -17,7 +17,7 @@ export default async function page() {
 
 	return (
 		<div className="flex flex-col items-center h-full">
-			<Nav />
+			<NavAuthorized />
 			<div className='w-96'>
 				<AddImageForm />
 			</div>

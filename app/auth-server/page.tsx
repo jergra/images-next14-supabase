@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { readUserSession } from "@/lib/actions";
 import Images from "@/components/Images";
-import NavAuth from "@/components/NavAuth";
+import Nav from "@/components/Nav";
 
 export default async function page() {
 
@@ -13,7 +13,7 @@ export default async function page() {
 
 	return (
 		<div className="flex flex-col items-center h-full">
-			<NavAuth />
+			<Nav />
 			<Images />
 		</div>
 	);

@@ -3,7 +3,7 @@ import React from "react";
 import { readUserSession } from "@/lib/actions";
 import { redirect } from "next/navigation";
 import Nav from "@/components/Nav";
-
+import NavAuthorized from "@/components/NavAuthorized";
 
 export default async function page() {
 
@@ -15,7 +15,7 @@ export default async function page() {
 
 	return (
 		<div className="flex flex-col items-center h-full">
-			<Nav />
+			{data.session ? (<NavAuthorized />) : (<Nav />)}
 			<Images />
 		</div>
 	);

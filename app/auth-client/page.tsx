@@ -1,7 +1,7 @@
 import { AuthForm } from "./components/AuthForm";
 import { redirect } from "next/navigation";
 import { readUserSession } from "@/lib/actions";
-import NavAuth from "@/components/NavAuth";
+import Nav from "@/components/Nav";
 
 export default async function page() {
 	const { data } = await readUserSession();
@@ -12,7 +12,7 @@ export default async function page() {
 
 	return (
 		<div className="flex flex-col items-center h-screen">
-			<NavAuth />
+			<Nav />
 			<div className="w-96 m-auto">
 				<AuthForm />
 			</div>

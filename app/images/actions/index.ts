@@ -1,12 +1,15 @@
 "use server";
 
+import { readUserSession } from "@/lib/actions";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
 
-export async function addImage(url: string) {
+export async function addImage(url: string, description: string, wiki_info_url: string) {
+	const { data } = await readUserSession();
+	const email = data.session?.user.email
 	const supabase = await createSupabaseServerClient();
-	const result = await supabase.from("images").insert({ url }).single();
+	const result = await supabase.from("images").insert({ url, description, wiki_info_url, email }).single();
 	revalidatePath("/images");
 	return JSON.stringify(result);
 }
@@ -25,6 +28,19 @@ export async function readImagesByUserId() {
 	const {data} = await supabase.auth.getSession();
 
 	return await supabase.from("images").select("*").eq("added_by", data.session?.user.id);
+}
+
+export async function readImagesByAddedBy(added_by: string) {
+	noStore();
+	const supabase = await createSupabaseServerClient();
+
+	return await supabase.from("images").select("*").eq("added_by", added_by);
+}
+
+export async function readImageById(id: string) {
+	noStore();
+	const supabase = await createSupabaseServerClient();
+	return await supabase.from("images").select().eq("id", id);
 }
 
 export async function deleteImageById(id: string) {

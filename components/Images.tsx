@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
-import { readImages } from "@/app/images/actions";
+import { readImageById, readImages } from "@/app/images/actions";
+import Link from "next/link";
 
 export default async function Images() {
 	const { data } = await readImages();
@@ -10,14 +10,15 @@ export default async function Images() {
 			{data?.reverse().map((image, index) => {
 				return (
 					<div key={index}>
-						<div>
+						<Link href={`/image/${image.id}`}
+						>
 							<Image
 								src={image.url}
 								width={398}
 								height={398}
 								alt=""
 							/>
-						</div>
+						</Link>
 					</div>
 				);
 			})}

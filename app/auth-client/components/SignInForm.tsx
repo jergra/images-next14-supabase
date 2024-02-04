@@ -56,7 +56,7 @@ export default function SignInForm() {
 				});
 			} else {
 				toast({
-					title: "You are successfully registered.",
+					title: "You have successfully signed in.",
 					description: (
 						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
 							<code className="text-white">signin complete</code>

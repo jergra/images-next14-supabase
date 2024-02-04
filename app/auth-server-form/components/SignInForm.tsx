@@ -42,7 +42,7 @@ export default function SignInForm() {
 		startTransition(async () => {
 			const result = await signInWithEmailAndPassword(data);
 			const { error } = JSON.parse(result);
-			if (error?.message)
+			if (error?.message) {
 				toast({
 					variant: "destructive",
 					title: "Failed to Login",
@@ -52,7 +52,19 @@ export default function SignInForm() {
 						</pre>
 					),
 				});
-		});
+			} else {
+				toast({
+					title: "You have successfully signed in.",
+					description: (
+						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+							<code className="text-white">
+								signin complete
+							</code>
+						</pre>
+					),
+				});
+			}
+		})
 	}
 
 	return (
