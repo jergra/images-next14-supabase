@@ -91,7 +91,7 @@ export default function AddImageForm() {
 								<FormLabel></FormLabel>
 								<FormControl>
 									<Input
-										placeholder="Wikipedia 'Copy Image Link' URL (right click on image)"
+										placeholder="Wikipedia 'Copy Image Link' or 'Copy image address'"
 										{...field}
 										onChange={field.onChange}
 									/>
