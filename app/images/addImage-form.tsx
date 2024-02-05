@@ -77,7 +77,7 @@ export default function AddImageForm() {
 	}
 
 	return (
-		<div className='mt-10'>
+		<div className='mt-10 mx-1'>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
