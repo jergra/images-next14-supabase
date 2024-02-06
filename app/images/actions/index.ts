@@ -8,11 +8,26 @@ import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 export async function addImage(url: string, description: string, wiki_info_url: string) {
 	const { data } = await readUserSession();
 	const email = data.session?.user.email
+
+	const index = email?.indexOf('@')
+  	const username = email?.slice(0, index)
+
 	const supabase = await createSupabaseServerClient();
-	const result = await supabase.from("images").insert({ url, description, wiki_info_url, email }).single();
+	const result = await supabase.from("images").insert({ url, description, wiki_info_url, email, username }).single();
 	revalidatePath("/images");
 	return JSON.stringify(result);
 }
+
+export async function changeUsername(newUsername: string) {
+	const { data } = await readUserSession();
+	const email = data.session?.user.email
+
+	const supabase = await createSupabaseServerClient();
+	const result = await supabase.from("images").update({ username: newUsername }).eq("email", email);
+  
+	revalidatePath("/images");
+	return JSON.stringify(result);
+  }
 
 export async function readImages() {
 	noStore();

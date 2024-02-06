@@ -15,15 +15,14 @@ export default async function page({ params: { added_by } }: Props) {
 
   const images: any = await readImagesByAddedBy(added_by);
   
-  const indx = images.data[0].email.indexOf('@')
-  const userName = images.data[0].email.slice(0, indx)
+  const username = images.data[0].username
   
   
   return (
     <div>
       {data.session ? (<NavAuthorized />) : (<Nav />)}
       
-      <div className='m-10 text-lg'>Images added by <span className='font-bold'>{userName}</span></div>
+      <div className='m-10 text-lg'>Images added by <span className='font-bold'>{username}</span></div>
   
       <div className="flex flex-wrap h-full gap-10 m-10">
         {images.data?.reverse().map((image: any, index: any) => {

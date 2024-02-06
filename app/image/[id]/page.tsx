@@ -15,8 +15,7 @@ export default async function page({ params: { id } }: Props) {
 
   const image: any = await readImageById(id)
 
-  const index = image.data[0].email.indexOf('@')
-  const userName = image.data[0].email.slice(0, index)
+  const username = image.data[0].username
   
   return (
     <div>
@@ -36,7 +35,7 @@ export default async function page({ params: { id } }: Props) {
             </Link>
           </div>
           <div>
-            Added by: <span className='text-blue-700'><Link href={`/images/${image.data[0].added_by}`}>{userName}</Link></span>
+            Added by: <span className='text-blue-700 ml-1'><Link href={`/images/${image.data[0].added_by}`}>{username}</Link></span>
           </div>
         </div>
       </div>

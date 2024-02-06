@@ -18,42 +18,34 @@ import { toast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
 import { cn } from "@/lib/utils";
-import { addImage } from "./actions"
+import { changeUsername } from "./actions"
+
 
 const FormSchema = z.object({
-	url: z.string().min(1, {
-		message: "Please provide Wikipedia 'Copy Image Link' URL.",
-	}),
-	description: z.string().min(1, {
-		message: "Please provide a title and/or description.",
-	}),
-	wiki_info_url: z.string().min(1, {
-		message: "Please provide a URL for the associated Wikipedia page.",
-	}),
+	newUsername: z.string(),
 });
 
-export default function AddImageForm() {
+export default function ChangeUsernameForm() {
 
 	const [isPending, startTransition] = useTransition();
 
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
-			url: "",
-			description: "",
-			wiki_info_url: "",
+			newUsername: "",
 		},
 	});
 
 	function onSubmit(data: z.infer<typeof FormSchema>) {
+
 		startTransition(async () => {
-			const result = await addImage(data.url, data.description, data.wiki_info_url);
+            const result = await changeUsername(data.newUsername);
 			const { error, data: images } = JSON.parse(result);
 
 			if (error?.message) {
 				toast({
 					variant: "destructive",
-					title: "Failed to add image",
+					title: "Failed to change username",
 					description: (
 						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
 							<code className="text-white">{error.message}</code>
@@ -62,11 +54,11 @@ export default function AddImageForm() {
 				});
 			} else {
 				toast({
-					title: "You successfully added an image.",
+					title: "You successfully changed your username.",
 					description: (
 						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
 							<code className="text-white">
-								{data.url} added
+								{data.newUsername} is your username
 							</code>
 						</pre>
 					),
@@ -77,65 +69,32 @@ export default function AddImageForm() {
 	}
 
 	return (
-		<div className='w-96'>
+		<div>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className="w-full space-y-6"
+                    className='flex'
 				>
-					<FormField
-						control={form.control}
-						name="url"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel></FormLabel>
-								<FormControl>
-									<Input
-										placeholder="Wikipedia 'Copy image address' or 'Copy Image Link'"
-										{...field}
-										onChange={field.onChange}
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
 					 <FormField
 						control={form.control}
-						name="description"
+						name="newUsername"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel></FormLabel>
 								<FormControl>
 									<Input
-										placeholder="image title and/or brief description"
+										placeholder="new username"
 										{...field}
 										onChange={field.onChange}
+                                        className='w-40'
 									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
 						)}
 					/>
-					<FormField
-						control={form.control}
-						name="wiki_info_url"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel></FormLabel>
-								<FormControl>
-									<Input
-										placeholder="Wikipedia URL for more information"
-										{...field}
-										onChange={field.onChange}
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-					<Button type="submit" className="w-full flex gap-2">
-						Add Image
+					<Button type="submit" className='ml-4 mt-2'>
+						Update
 						<AiOutlineLoading3Quarters
 							className={cn(" animate-spin", { hidden: !isPending })}
 						/>

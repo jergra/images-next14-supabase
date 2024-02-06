@@ -25,8 +25,5 @@ example of the image/[id] structure.
 
 
 to do:
-- is it possible to register twice with the same email (possibly different password)
-and be issued a different user_id (added_by) in each case?
-- make it possible for the user to add a username that is different from the email
 - make it possible to add images from any source, perhaps storing images
     on Cloudinary. This would probably be a separate project.
