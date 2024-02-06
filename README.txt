@@ -25,5 +25,6 @@ example of the image/[id] structure.
 
 
 to do:
+- needs to be margin for forms in mobile view
 - make it possible to add images from any source, perhaps storing images
     on Cloudinary. This would probably be a separate project.

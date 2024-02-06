@@ -77,7 +77,7 @@ export default function AddImageForm() {
 	}
 
 	return (
-		<div className='w-96'>
+		<div className='w-80 md:w-96'>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}

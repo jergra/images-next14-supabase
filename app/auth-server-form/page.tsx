@@ -14,7 +14,7 @@ export default async function page() {
 	return (
 		<div className="flex flex-col justify-center items-center h-screen">
 			<Nav />
-			<div className="w-96 m-auto">
+			<div className="w-80 md:w-96 m-auto">
 				<AuthForm />
 			</div>
 		</div>
