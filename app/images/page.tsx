@@ -24,7 +24,7 @@ export default async function page() {
 			<NavAuthorized />
 			<div className='flex flex-col items-center my-10'>
 				<div className='mb-16'>
-					<div className='bg-white text-gray-800 ml-1'>
+					<div className='bg-white text-gray-800'>
 						Username:<span className='ml-2'>{username}</span>
 					</div>
 					<ChangeUsernameForm />
