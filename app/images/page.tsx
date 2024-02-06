@@ -23,7 +23,7 @@ export default async function page() {
 		<div className="flex flex-col items-center h-full">
 			<NavAuthorized />
 			<div className='flex flex-col items-center mx-1 my-10'>
-				<div className='mb-10'>
+				<div className='mb-16'>
 					<div className='bg-white text-gray-800 ml-2'>
 						Username:<span className='ml-2'>{username}</span>
 					</div>
@@ -31,7 +31,7 @@ export default async function page() {
 				</div>
 				<AddImageForm />
 			</div>
-			<div className="w-full flex flex-wrap p-10 mb-10 gap-10">
+			<div className="w-full flex flex-wrap px-10 mb-10 gap-10">
 				{data?.reverse().map((image, index) => {
 					const deleteImage = deleteImageById.bind(null, image.id);
 					return (
