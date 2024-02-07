@@ -16,7 +16,7 @@ export default function NavAuthorized() {
 	
   return (
     <div className='flex justify-between w-full bg-gray-100 h-16 items-center py-2 px-2 md:px-10 '>
-		<div className='text-3xl md:text-5xl text-teal-300 hover:text-teal-400'><Link href="/">IMAGES</Link></div>
+		<div className='text-3xl md:text-5xl text-teal-300 hover:text-teal-200'><Link href="/">IMAGES</Link></div>
 		<div className='flex  w-1/2 md:w-1/6 justify-between'>
 			<Link href="/images"><Button className='bg-gray-900 text-primary-foreground shadow hover:bg-primary/90 mr-3'>Profile</Button></Link>
 			<form action={logout}>
