@@ -9,13 +9,23 @@ export async function addImage(url: string, description: string, wiki_info_url: 
 	const { data } = await readUserSession();
 	const email = data.session?.user.email
 
-	const index = email?.indexOf('@')
-  	const username = email?.slice(0, index)
-
 	const supabase = await createSupabaseServerClient();
-	const result = await supabase.from("images").insert({ url, description, wiki_info_url, email, username }).single();
-	revalidatePath("/images");
-	return JSON.stringify(result);
+
+	const res: any = await supabase.from("images").select("*").eq("email", data.session?.user.email);
+	if (res.data.length) {
+		const username = res.data[0].username
+		
+		const result = await supabase.from("images").insert({ url, description, wiki_info_url, email, username }).single();
+		revalidatePath("/images");
+		return JSON.stringify(result);
+	} else {
+		const index = email?.indexOf('@')
+		const username = email?.slice(0, index)
+
+		const result = await supabase.from("images").insert({ url, description, wiki_info_url, email, username }).single();
+		revalidatePath("/images");
+		return JSON.stringify(result);
+	}
 }
 
 export async function changeUsername(newUsername: string) {
