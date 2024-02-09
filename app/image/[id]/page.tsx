@@ -27,7 +27,7 @@ export default async function page({ params: { id } }: Props) {
           height={700}
           alt=""
         />
-        <div className='md:ml-20 md:w-1/5'>
+        <div className='md:ml-20 md:w-1/4'>
           <div className='my-4 md:mb-4 md:mt-0'>{image.data[0].description}</div>
           <div className='mb-12 text-blue-700'>
             <Link href={image.data[0].wiki_info_url} target="_blank">
