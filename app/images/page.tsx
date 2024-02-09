@@ -15,12 +15,6 @@ export default async function page() {
 		return redirect("/");
 	}
 
-	//console.log('data[0].username in app/images/page.tsx:', data[0].username)
-	console.log('data in app/images/page.tsx:', data)
-	console.log('data.length in app/images/page.tsx:', data.length)
-
-	
-
 	if (data.length) {
 		const username = data[0].username
 		const email = data[0].email
@@ -37,7 +31,7 @@ export default async function page() {
 					</div>
 					<AddImageForm />
 				</div>
-				<div className="w-full flex flex-wrap px-10 mb-10 gap-10">
+				<div className="w-full flex flex-wrap px-10 mb-20 gap-10">
 					{data?.reverse().map((image, index) => {
 						const deleteImage = deleteImageById.bind(null, image.id);
 						return (
@@ -69,7 +63,7 @@ export default async function page() {
 				<div className='flex flex-col items-center my-10'>
 					<AddImageForm />
 				</div>
-				<div className="w-full flex flex-wrap px-10 mb-10 gap-10">
+				<div className="w-full flex flex-wrap px-10 mb-20 gap-10">
 					{data?.reverse().map((image, index) => {
 						const deleteImage = deleteImageById.bind(null, image.id);
 						return (

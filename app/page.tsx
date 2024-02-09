@@ -14,9 +14,10 @@ export default async function page() {
 	}
 
 	return (
-		<div className="flex flex-col items-center h-full">
+		<div className="flex flex-col items-center">
 			{data.session ? (<NavAuthorized />) : (<Nav />)}
 			<Images />
+			
 		</div>
 	);
 }

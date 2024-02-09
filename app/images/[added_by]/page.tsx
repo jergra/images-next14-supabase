@@ -24,7 +24,7 @@ export default async function page({ params: { added_by } }: Props) {
       
       <div className='m-10 text-lg'>Images added by <span className='font-bold'>{username}</span></div>
   
-      <div className="flex flex-wrap h-full gap-10 m-10">
+      <div className="flex flex-wrap h-full gap-10 m-10 mb-20">
         {images.data?.reverse().map((image: any, index: any) => {
           return (
             <div key={index}>
@@ -41,6 +41,7 @@ export default async function page({ params: { added_by } }: Props) {
           );
         })}
 	    </div>
+      
     </div>
   )
 }
