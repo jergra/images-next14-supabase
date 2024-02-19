@@ -27,3 +27,5 @@ example of the image/[id] structure.
 to do:
 - make it possible to add images from any source, perhaps storing images 
 on Cloudinary. This would probably be a separate project.
+- update Feb 17, 2024: This separate project has now been done, using supabase storage 
+and Uppy to add images. https://github.com/jergra/image-gallery-next14
